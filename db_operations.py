@@ -8,4 +8,4 @@ def write_data(file: str):
     pass
 
 
-
+# Делает Женя
