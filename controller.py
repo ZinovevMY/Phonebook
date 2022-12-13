@@ -5,7 +5,7 @@ def click():
     view.main_menu()
 
 
-def op_choice():
+def get_op_choice():
     while True:
         op = input('-> ')
         if not (op in '1234560'):
@@ -13,3 +13,8 @@ def op_choice():
             continue
         return op
         break
+
+
+def get_search_data():
+    obj = input('Введите фамилию или номер абонента (если ничего не вводить, будет выдан весь справочник): ')
+    return obj
