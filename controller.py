@@ -7,8 +7,8 @@ def click():
 
 def get_op_choice():
     while True:
-        op = input('-> ')
-        if not (op in '1234560'):
+        op = int(input('-> '))
+        if not (op in range(0, 6)):
             print('Нет такой операции, попробуйте снова!')
             continue
         return op
