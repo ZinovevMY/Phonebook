@@ -2,6 +2,6 @@ import controller as contr
 
 
 if __name__ == '__main__':
-    contr.click()
-    op = contr.get_op_choice()
-    print(op)
+    options = contr.click()
+    op = contr.get_menu_choice(options)
+    submenu_op = contr.submenus_navigation(op)
