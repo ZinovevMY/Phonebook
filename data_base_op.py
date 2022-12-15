@@ -1,6 +1,7 @@
+# this function read from *.txt and *.csv format file(data_base)
 def read_data(file: str) -> list:
-    with open(file, 'r') as f:
-        book = f.readlines()
+    with open(file, 'r') as data_base:
+        book = data_base.readlines()
     data = []
     sep = '\n'
     if ',' in book[0]:
@@ -24,15 +25,22 @@ def read_data(file: str) -> list:
                 data.append(temp)
                 temp = []
     data = sorted(data)
-    return data
+    return data, sep
 
 
-print(read_data('phonebook.csv'))
-
-
-def write_data(file: str, data: list):
-
-    pass
-
-
-# Делает Женя
+# this function overwrites the data_base or appends an element to the end depending on the command
+def write_data(data: list, sep='\n', command=0) -> None:
+    if sep == '\n':
+        file = 'phonebook.txt'
+        k = 2
+    else:
+        file = 'phonebook.csv'
+        k = 1
+    if not command:
+        db_com = 'a'  # appends an element to the end
+    else:
+        db_com = 'w'  # overwrites the data_base
+    with open(file, db_com) as data_base:
+        for contact in data:
+            data_base.write(sep.join(contact))
+            data_base.write('\n'*k)
