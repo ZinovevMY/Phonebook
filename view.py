@@ -14,7 +14,7 @@ def main_menu():
 
 def show_all(records_list: list):
     # придумать, как выводить все записи!
-    pass
+    return 'sa', 0
 
 
 def search_menu():
@@ -25,7 +25,7 @@ def search_menu():
           '1 - Поиск по фамилии\n'
           '2 - Поиск по номеру телефона\n'
           '0 - Выход')
-    return 3
+    return 'sm', 3
 
 
 def edit_menu():
@@ -36,7 +36,7 @@ def edit_menu():
           '1 - Добавление абонента\n'
           '2 - Изменение данных абонента\n'
           '0 - Выход')
-    return 3
+    return 'em', 3
 
 
 def delete_menu():
@@ -47,7 +47,7 @@ def delete_menu():
           '1 - Удаление по фамилии\n'
           '2 - Удаление по номеру телефона\n'
           '0 - Выход')
-    return 3
+    return 'dm', 3
 
 
 def file_menu():
@@ -58,6 +58,6 @@ def file_menu():
           '1 - Загрузить из файла\n'
           '2 - Выгрузка в файл\n'
           '0 - Выход')
-    return 3
+    return 'fm', 3
 
 
