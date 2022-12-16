@@ -39,12 +39,8 @@ def search_menu_navigation(menu_number: int):
     if menu_number == 1:
         search_obj = get_search_data()
         dbo.read_data('phonebook.txt', search_obj)
-    elif menu_number == 2:
-        search_obj = get_search_data()
-        dbo.read_data('phonebook.txt', search_obj)
     elif menu_number == 0:
-        options = click()
-        get_menu_choice(options)
+        click()
 
 
 def edit_menu_navigation(menu_number: int):
@@ -55,22 +51,17 @@ def edit_menu_navigation(menu_number: int):
         search_obj = get_search_data()
         dbo.edit_data('phonebook.txt', search_obj)
     elif menu_number == 0:
-        options = click()
-        get_menu_choice(options)
+        click()
 
 
 def delete_menu_navigation(menu_number: int):
     if menu_number == 1:
         search_obj = get_search_data()
         dbo.delete_object('phonebook.txt', search_obj)
-    elif menu_number == 2:
-        search_obj = get_search_data()
-        dbo.delete_object('phonebook.txt', search_obj)
     elif menu_number == 0:
-        options = click()
-        get_menu_choice(options)
+        click()
 
 
 def get_search_data():
-    obj = input('Введите данные для поиска: ')
+    obj = input('Введите данные абонента: ')
     return obj
