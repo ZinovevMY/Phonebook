@@ -36,43 +36,39 @@ def submenus_navigation(menu_number: int):
 
 
 def search_menu_navigation(menu_number: int):
-    search_obj = ''
-    match menu_number:
-        case 1:
-            search_obj = get_search_data()
-            dbo.read_data('phonebook.txt', search_obj)
-        case 2:
-            search_obj = get_search_data()
-            dbo.read_data('phonebook.txt', search_obj)
-        case 0:
-            options = click()
-            get_menu_choice(options)
+    if menu_number == 1:
+        search_obj = get_search_data()
+        dbo.read_data('phonebook.txt', search_obj)
+    elif menu_number == 2:
+        search_obj = get_search_data()
+        dbo.read_data('phonebook.txt', search_obj)
+    elif menu_number == 0:
+        options = click()
+        get_menu_choice(options)
 
 
 def edit_menu_navigation(menu_number: int):
-    match menu_number:
-        case 1:
-            search_obj = get_search_data()
-            dbo.write_data('phonebook.txt', search_obj)
-        case 2:
-            search_obj = get_search_data()
-            dbo.edit_data('phonebook.txt', search_obj)
-        case 0:
-            options = click()
-            get_menu_choice(options)
+    if menu_number == 1:
+        search_obj = get_search_data()
+        dbo.write_data('phonebook.txt', search_obj)
+    elif menu_number == 2:
+        search_obj = get_search_data()
+        dbo.edit_data('phonebook.txt', search_obj)
+    elif menu_number == 0:
+        options = click()
+        get_menu_choice(options)
 
 
 def delete_menu_navigation(menu_number: int):
-    match menu_number:
-        case 1:
-            search_obj = get_search_data()
-            dbo.delete_object('phonebook.txt', search_obj)
-        case 2:
-            search_obj = get_search_data()
-            dbo.delete_object('phonebook.txt', search_obj)
-        case 0:
-            options = click()
-            get_menu_choice(options)
+    if menu_number == 1:
+        search_obj = get_search_data()
+        dbo.delete_object('phonebook.txt', search_obj)
+    elif menu_number == 2:
+        search_obj = get_search_data()
+        dbo.delete_object('phonebook.txt', search_obj)
+    elif menu_number == 0:
+        options = click()
+        get_menu_choice(options)
 
 
 def get_search_data():
