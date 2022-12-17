@@ -12,6 +12,14 @@ def main_menu():
     return 6
 
 
+def show_all_menu():
+    print('------------')
+    print('Все абоненты')
+    print('------------')
+    print('Для выхода нажмите цифру 0! ')
+    return 'sa', 0
+
+
 def search_menu():
     print('--------------')
     print('Поиск абонента')

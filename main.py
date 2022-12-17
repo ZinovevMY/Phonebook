@@ -1,21 +1,22 @@
+import view as v
 import controller as contr
 
 if __name__ == '__main__':
     while True:
         options = contr.click()
-        op_num = contr.get_menu_choice(options)
-        submenu_name, submenu_opt_count = contr.submenus_navigation(op_num)
+        op_num = v.get_menu_choice(options)
+        submenu_name, submenu_opt_count = v.submenus_navigation(op_num)
         match submenu_name:
             case 'sa':
-                pass
+                v.show_all_menu_navigation()
             case 'sm':
-                op_num = contr.get_menu_choice(submenu_opt_count)
-                contr.search_menu_navigation(op_num)
+                op_num = v.get_menu_choice(submenu_opt_count)
+                v.search_menu_navigation(op_num)
             case 'em':
-                op_num = contr.get_menu_choice(submenu_opt_count)
-                contr.edit_menu_navigation(op_num)
+                op_num = v.get_menu_choice(submenu_opt_count)
+                v.edit_menu_navigation(op_num)
             case 'dm':
-                op_num = contr.get_menu_choice(submenu_opt_count)
-                contr.delete_menu_navigation(op_num)
+                op_num = v.get_menu_choice(submenu_opt_count)
+                v.delete_menu_navigation(op_num)
             case 'fm':
                 print('пока делаем!')
