@@ -17,7 +17,7 @@ def output_data(data: list) -> None:  # output is list of contacts
         print('PhoneBook is empty')
 
 
-output_data([['qwew', '12312'], ['wqeqwrr', '213']])
+output_data([['qwer', 'ewq', '1234569'],['', 'fdsa', '987654']])
 
 
 def find_contact():

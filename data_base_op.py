@@ -44,3 +44,7 @@ def write_data(data: list, sep='\n', command=0) -> None:
         for contact in data:
             data_base.write(sep.join(contact))
             data_base.write('\n'*k)
+
+
+my_list = [['qwer', 'ewq', '1234569'],['', 'fdsa', '987654']]
+write_data(my_list)

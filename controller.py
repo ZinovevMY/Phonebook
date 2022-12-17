@@ -1,5 +1,5 @@
 import view
-import db_operations as dbo
+import data_base_op as dbo
 
 
 def click():
@@ -13,7 +13,6 @@ def get_menu_choice(options_number: int):
             print('Нет такой операции, попробуйте снова!')
             continue
         return op
-        break
 
 
 def submenus_navigation(menu_number: int):
@@ -65,3 +64,8 @@ def delete_menu_navigation(menu_number: int):
 def get_search_data():
     obj = input('Введите данные абонента: ')
     return obj
+
+
+def get_contact_details():
+    while True:
+        pass
