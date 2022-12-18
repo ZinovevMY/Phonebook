@@ -46,15 +46,6 @@ def write_data(data: list, sep='\n', command=0) -> None:
             data_base.write('\n'*k)
 
 
-my_list = [['qwer', 'ewq', '1234569'],['', 'fdsa', '987654']]
-write_data(my_list)
-
-
-def edit_data(file: str, obj_name: str):
-    # редактируем данные
-    pass
-
-
 def delete_object(file: str, obj_name: str):
     pass
 

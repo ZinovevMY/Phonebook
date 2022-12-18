@@ -5,7 +5,9 @@ import keyboard as kb
 
 
 def show_all(data: list):
-    if len(data) > 0:
+    if None in data:
+        print('контакт не существует')
+    elif len(data) > 0:
         print("-" * 105 + '\n')
         for contact in data:
             while len(contact) < 5:
@@ -89,4 +91,9 @@ def get_search_data():
 
 def get_contact_details():
     while True:
-        pass
+        print("Введите ФИО абонента, а также номер телефона и примечание."
+              "Данные вводите через пробел, либо через разделитель (, ; : *) без пробелов!")
+        details = input('->')
+        if details == '':
+            print()
+
