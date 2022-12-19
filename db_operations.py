@@ -49,5 +49,3 @@ def write_data(data: list, sep='\n', command=0) -> None:
 def delete_object(file: str, obj_name: str):
     pass
 
-
-# Делает Женя

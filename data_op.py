@@ -38,4 +38,5 @@ def add_contact() -> list:
        return None
 
 
-def del_contact(data: list, find_el: ) -> list:
+def del_contact(data: list, find_el: str) -> list:
+    pass

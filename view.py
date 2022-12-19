@@ -2,6 +2,7 @@ import menu_struct as ms
 import db_operations as dbo
 import controller as contr
 import keyboard as kb
+import data_op as dop
 
 
 def show_all(data: list):
@@ -60,15 +61,21 @@ def show_all_menu_navigation():
 def search_menu_navigation(menu_number: int):
     if menu_number == 1:
         search_obj = get_search_data()
-        dbo.read_data('phonebook.txt', search_obj)
+        search_list, search_sep = dbo.read_data('phonebook.txt')
+        result = dop.find_contact(search_list, search_obj)
+        show_all(result)
+        print('Для выхода нажмите 0.\n')
+        while True:
+            if kb.is_pressed('0'):
+                break
     elif menu_number == 0:
         contr.click()
 
 
 def edit_menu_navigation(menu_number: int):
     if menu_number == 1:
-        search_obj = get_search_data()
-        dbo.write_data('phonebook.txt', search_obj)
+        contact_list = dop.add_contact()
+        dbo.write_data(contact_list)
     elif menu_number == 2:
         search_obj = get_search_data()
         dbo.edit_data('phonebook.txt', search_obj)
@@ -87,13 +94,4 @@ def delete_menu_navigation(menu_number: int):
 def get_search_data():
     obj = input('Введите данные абонента: ')
     return obj
-
-
-def get_contact_details():
-    while True:
-        print("Введите ФИО абонента, а также номер телефона и примечание."
-              "Данные вводите через пробел, либо через разделитель (, ; : *) без пробелов!")
-        details = input('->')
-        if details == '':
-            print()
 
