@@ -1,25 +1,18 @@
-qwer
-qwef
-1234569
+Smith
+John
+56321
+Gates
+Bill
+741258
+451278
+Ivanov
+Ivan
 
-fdsa
-987654
+456987
+zzz
+doe
+jane
+ivanovna
+451236
 
-qwer
-ewq
-1234569
 
-fdsa
-987654
-
-qwer
-ewq
-1234569
-
-ghj
-fds
-654789
-
-zasx
-rewq
-963258

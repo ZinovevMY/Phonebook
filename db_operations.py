@@ -22,9 +22,11 @@ def read_data(file: str) -> list:
             if line != '\n':
                 temp.append(line.rstrip())
             else:
+                print(temp)
                 data.append(temp)
                 temp = []
-    data = sorted(data)
+    # data = sorted(data)
+    data.append(temp)
     return data, sep
 
 
@@ -44,8 +46,4 @@ def write_data(data: list, sep='\n', command=0) -> None:
         for contact in data:
             data_base.write(sep.join(contact))
             data_base.write('\n'*k)
-
-
-def delete_object(file: str, obj_name: str):
-    pass
 

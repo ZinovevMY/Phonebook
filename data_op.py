@@ -28,11 +28,9 @@ def add_contact() -> list:
                 tmp = input('Телефон: ')
             case 4:
                 tmp = input('Примечание: ')
-        if (',' not in tmp) and (':' not in tmp) and (';' not in tmp) and ('*' not in tmp):
-            if len(tmp_data) > 0:
-                tmp_data.append(tmp)
-            i += 1
-        print('ошибка повторите ввод')
+        # if (',' not in tmp) and (':' not in tmp) and (';' not in tmp) and ('*' not in tmp):
+        tmp_data.append(tmp)
+        i += 1
     data.append(tmp_data)
     if len(data) > 0:
        return data
@@ -47,9 +45,11 @@ def del_contact(data: list) -> list:
     if del_list is None:
         print("Нечего удалять!")
     elif len(del_list) == 1:
-        return data.remove(del_list)
+        data.remove(del_list)
+        return data
     else:
         v.show_all(del_list)
         del_num = int(input("Введите порядкой номер элемента (сверху вниз от 1) для удаления: ")) - 1
         del_list = del_list[del_num]
-        return data.remove(del_list)
+        data.remove(del_list)
+        return data

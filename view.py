@@ -85,8 +85,9 @@ def edit_menu_navigation(menu_number: int):
 
 def delete_menu_navigation(menu_number: int):
     if menu_number == 1:
-        search_obj = get_search_data()
-        dbo.delete_object('phonebook.txt', search_obj)
+        search_list, search_sep = dbo.read_data('phonebook.txt')
+        result = dop.del_contact(search_list)
+        dbo.write_data(result)
     elif menu_number == 0:
         contr.click()
 
