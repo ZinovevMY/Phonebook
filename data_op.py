@@ -1,3 +1,6 @@
+import view as v
+
+
 def find_contact(data: list, find_el: str) -> list:
     result = []
     for contact in data:
@@ -38,5 +41,15 @@ def add_contact() -> list:
        return None
 
 
-def del_contact(data: list, find_el: str) -> list:
-    pass
+def del_contact(data: list) -> list:
+    find_el = input("Введите данные о контакте для удаления: ")
+    del_list = find_contact(data, find_el)
+    if del_list is None:
+        print("Нечего удалять!")
+    elif len(del_list) == 1:
+        return data.remove(del_list)
+    else:
+        v.show_all(del_list)
+        del_num = int(input("Введите порядкой номер элемента (сверху вниз от 1) для удаления: ")) - 1
+        del_list = del_list[del_num]
+        return data.remove(del_list)
