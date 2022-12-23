@@ -18,5 +18,3 @@ if __name__ == '__main__':
             case 'dm':
                 op_num = v.get_menu_choice(submenu_opt_count)
                 v.delete_menu_navigation(op_num)
-            case 'fm':
-                print('пока делаем!')

@@ -43,8 +43,6 @@ def submenus_navigation(menu_number: int):
             submenu_name, submenu_opt_count = ms.edit_menu()
         case 4:
             submenu_name, submenu_opt_count = ms.delete_menu()
-        case 5:
-            submenu_name, submenu_opt_count = ms.file_menu()
         case 0:
             quit()
     return submenu_name, submenu_opt_count
