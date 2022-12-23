@@ -33,6 +33,10 @@ def add_contact() -> list:
             if len(tmp):
                 tmp_data.append(tmp)
                 i += 1
+            else:
+                tmp = '-'
+                tmp_data.append(tmp)
+                i += 1
     data.append(tmp_data)
     if len(data) > 0:
         return data
@@ -72,12 +76,9 @@ def edit_data(file: str, find_el: str) -> None:
                 tmp = tmp[n-1]
                 break
     new_tmp = add_contact()
-    print(new_tmp)
     index_ = data.index(tmp)
-    print(index_)
     if None in new_tmp:
         print('нечего менять')
     else:
         data[index_] = new_tmp[0]
-        print(data)
         dbo.write_data(data, sep, command=1)
