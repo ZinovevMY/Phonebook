@@ -15,10 +15,10 @@ def show_all(data: list):
                 contact.append('-')
             print(contact[0].center(20), '|'.center(1), contact[1].center(20), '|'.center(1),
                   contact[2].center(20), '|'.center(
-                    1), contact[3].center(15), '|'.center(1), contact[4].center(16), '|'.center(1) + '\n')
+                1), contact[3].center(15), '|'.center(1), contact[4].center(16), '|'.center(1) + '\n')
             print("-" * 105 + '\n')
     else:
-        print('PhoneBook is empty')
+        print('Справочник пуст')
     return 'sa', 0
 
 
@@ -78,7 +78,7 @@ def edit_menu_navigation(menu_number: int):
         dbo.write_data(contact_list)
     elif menu_number == 2:
         search_obj = get_search_data()
-        dbo.edit_data('phonebook.txt', search_obj)
+        dop.edit_data('phonebook.txt', search_obj)
     elif menu_number == 0:
         contr.click()
 
@@ -87,7 +87,7 @@ def delete_menu_navigation(menu_number: int):
     if menu_number == 1:
         search_list, search_sep = dbo.read_data('phonebook.txt')
         result = dop.del_contact(search_list)
-        dbo.write_data(result)
+        dbo.write_data(result, search_sep, 1)
     elif menu_number == 0:
         contr.click()
 
@@ -95,4 +95,3 @@ def delete_menu_navigation(menu_number: int):
 def get_search_data():
     obj = input('Введите данные абонента: ')
     return obj
-

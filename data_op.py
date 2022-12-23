@@ -1,4 +1,5 @@
 import view as v
+import db_operations as dbo
 
 
 def find_contact(data: list, find_el: str) -> list:
@@ -28,28 +29,55 @@ def add_contact() -> list:
                 tmp = input('Телефон: ')
             case 4:
                 tmp = input('Примечание: ')
-        # if (',' not in tmp) and (':' not in tmp) and (';' not in tmp) and ('*' not in tmp):
-        tmp_data.append(tmp)
-        i += 1
+        if (',' not in tmp) and (':' not in tmp) and (';' not in tmp) and ('*' not in tmp):
+            if len(tmp):
+                tmp_data.append(tmp)
+                i += 1
     data.append(tmp_data)
     if len(data) > 0:
-       return data
+        return data
     else:
-       print("Нечего добавлять!")
-       return None
+        print("Нечего добавлять!")
+        return None
 
 
 def del_contact(data: list) -> list:
-    find_el = input("Введите данные о контакте для удаления: ")
-    del_list = find_contact(data, find_el)
-    if del_list is None:
-        print("Нечего удалять!")
-    elif len(del_list) == 1:
-        data.remove(del_list)
-        return data
+    v.show_all(data)
+    while True:
+        try:
+            n = int(
+                input('введите порядковый номер контакта для удаления (c единицы): '))
+        except ValueError:
+            print(f'введите число от 1 до {len(data)}: ')
+        else:
+            if (n > 0) and (n < len(data)+1):
+                del data[n-1]
+                return data
+  
+
+def edit_data(file: str, find_el: str) -> None:
+    data, sep = dbo.read_data(file)
+    tmp = find_contact(data, find_el)
+    v.show_all(tmp)
+    if None in tmp:
+        return
+    while True:
+        try:
+            n = int(
+                input('введите порядковый номер контакта для изменения (c единицы): '))
+        except ValueError:
+            print(f'введите число от 1 до {len(tmp)}: ')
+        else:
+            if (n > 0) and (n < len(tmp)+1):
+                tmp = tmp[n-1]
+                break
+    new_tmp = add_contact()
+    print(new_tmp)
+    index_ = data.index(tmp)
+    print(index_)
+    if None in new_tmp:
+        print('нечего менять')
     else:
-        v.show_all(del_list)
-        del_num = int(input("Введите порядкой номер элемента (сверху вниз от 1) для удаления: ")) - 1
-        del_list = del_list[del_num]
-        data.remove(del_list)
-        return data
+        data[index_] = new_tmp[0]
+        print(data)
+        dbo.write_data(data, sep, command=1)
