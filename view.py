@@ -4,6 +4,8 @@ import controller as contr
 import keyboard as kb
 import data_op as dop
 
+FILE_TYPE = 0 # Переменная отвечает за то, с каким файлом (txt или csv) будем работать
+
 
 def show_all(data: list):
     if None in data:
@@ -25,7 +27,7 @@ def show_all(data: list):
 def get_menu_choice(options_number: int):
     while True:
         op = int(input('-> '))
-        if not (op in range(0, options_number)):
+        if not (0 <= op <= options_number):
             print('Нет такой операции, попробуйте снова!')
             continue
         return op
@@ -49,7 +51,10 @@ def submenus_navigation(menu_number: int):
 
 
 def show_all_menu_navigation():
-    all_list, all_list_sep = dbo.read_data('phonebook.txt')
+    if FILE_TYPE == 1:
+        all_list, all_list_sep = dbo.read_data('phonebook.txt')
+    else:
+        all_list, all_list_sep = dbo.read_data('phonebook.csv')
     show_all(all_list)
     while True:
         if kb.is_pressed('0'):
@@ -57,9 +62,13 @@ def show_all_menu_navigation():
 
 
 def search_menu_navigation(menu_number: int):
+    if FILE_TYPE == 1:
+        file = 'phonebook.txt'
+    else:
+        file = 'phonebook.csv'
     if menu_number == 1:
         search_obj = get_search_data()
-        search_list, search_sep = dbo.read_data('phonebook.txt')
+        search_list, search_sep = dbo.read_data(file)
         result = dop.find_contact(search_list, search_obj)
         show_all(result)
         print('Для выхода нажмите 0.\n')
@@ -71,19 +80,27 @@ def search_menu_navigation(menu_number: int):
 
 
 def edit_menu_navigation(menu_number: int):
+    if FILE_TYPE == 1:
+        file = 'phonebook.txt'
+    else:
+        file = 'phonebook.csv'
     if menu_number == 1:
         contact_list = dop.add_contact()
         dbo.write_data(contact_list)
     elif menu_number == 2:
         search_obj = get_search_data()
-        dop.edit_data('phonebook.txt', search_obj)
+        dop.edit_data(file, search_obj)
     elif menu_number == 0:
         contr.click()
 
 
 def delete_menu_navigation(menu_number: int):
+    if FILE_TYPE == 1:
+        file = 'phonebook.txt'
+    else:
+        file = 'phonebook.csv'
     if menu_number == 1:
-        search_list, search_sep = dbo.read_data('phonebook.txt')
+        search_list, search_sep = dbo.read_data(file)
         result = dop.del_contact(search_list)
         dbo.write_data(result, search_sep, 1)
     elif menu_number == 0:
